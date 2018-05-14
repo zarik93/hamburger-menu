@@ -1,0 +1,136 @@
+/*menu hamburger*/
+body {
+  background-color: #666;
+}
+input.menu-trigger {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 78px;
+  width: 78px;
+  z-index: 1001;
+  opacity: 0;
+  cursor: pointer;
+}
+ul.menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  height: 78px;
+  width: 78px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  background: #404040;
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+ul.menu li a {
+	float: right;
+  display: block;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 12px;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+ul.menu li a:hover {
+  background: #808080;
+  color: #fff;
+}
+ul.menu::-webkit-scrollbar { width: 0; }
+ul.menu { -ms-overflow-style: none; }
+ul.menu li ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  transition: all 0.3s ease;
+}
+ul.menu > li {
+	width: 100%;
+  visibility: hidden;
+  transition: all 0.5s ease;
+  float: right;
+  position: relative;
+}
+ul.menu > li.start {
+	right: 0;
+  position: relative;
+  visibility: visible;
+  background: #00d395;
+  text-align: center;
+}
+ul.menu > li.start a {
+  width: 78px;
+  height: 78px;
+  text-align: center;
+  padding: 0;
+}
+input.menu-trigger:checked + ul.menu {
+  height: 100%;
+  width: 50%;
+  overflow-y: scroll;
+}
+input.menu-trigger:checked + ul.menu > li {
+  visibility: visible;
+}
+input.menu-trigger:checked + ul.menu + div.overlay {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: black;
+  z-index: 999;
+}
+input.menu-trigger:checked + ul.menu > li.start {
+  background: #00d395;
+}
+div.overlay {
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+#nav-toggle { 
+  cursor: pointer; 
+  padding: 38px 0;
+}
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: white;
+  position: absolute;
+  display: block;
+  content: '';
+}
+#nav-toggle span{
+  margin: 0 22px;
+}
+#nav-toggle span:before {
+  top: -10px; 
+}
+#nav-toggle span:after {
+  bottom: -10px;
+}
+#nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
+  transition: all 250ms ease-in-out;
+}
+input.menu-trigger:checked + ul.menu > li.start > #nav-toggle span {
+  background-color: transparent;
+}
+input.menu-trigger:checked + ul.menu > li.start > #nav-toggle span:after {
+  top: 0;
+}
+input.menu-trigger:checked + ul.menu > li.start > #nav-toggle span:before {
+  top: 0;
+}
+input.menu-trigger:checked + ul.menu > li.start > #nav-toggle span:before {
+  transform: rotate(45deg);
+}
+input.menu-trigger:checked + ul.menu > li.start > #nav-toggle span:after {
+  transform: rotate(-45deg);
+}
